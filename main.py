@@ -13,7 +13,7 @@ class ChatRequest(BaseModel):
 
 
 def _run_chat(user: str, thread_id: str) -> dict[str, str]:
-    initial_state = {"messages": [HumanMessage(content=user)]}
+    initial_state = {"messages": [HumanMessage(content=user)], "summary": ""}
     config = {"configurable": {"thread_id": thread_id}}
 
     answer = work_flow.invoke(initial_state, config=config)
